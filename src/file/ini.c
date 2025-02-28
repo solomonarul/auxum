@@ -44,7 +44,7 @@ static void ini_array_parse(ini_data_t* self, char* line)
 
 ini_file_result_t ini_file_read(char* const path)
 {
-    ini_file_result_t result = {};
+    ini_file_result_t result = {0};
     FILE* input = fopen(path, "r");
     if(input == NULL)
     {
@@ -273,7 +273,7 @@ ini_data_ptr_result_t ini_data_get_from_array(ini_data_t* self, uint32_t index)
 
 ini_string_result_t ini_data_get_as_string(ini_data_t* self)
 {
-    ini_string_result_t result = {};
+    ini_string_result_t result = {0};
     if(self == NULL)
     {
         result.ok = false;
@@ -293,7 +293,7 @@ ini_string_result_t ini_data_get_as_string(ini_data_t* self)
 
 ini_int_result_t ini_data_get_as_int(ini_data_t* self)
 {
-    ini_int_result_t result = {};
+    ini_int_result_t result = {0};
     if(self == NULL)
     {
         result.ok = false;
@@ -318,7 +318,7 @@ ini_int_result_t ini_data_get_as_int(ini_data_t* self)
 
 ini_bool_result_t ini_data_get_as_bool(ini_data_t* self)
 {
-    ini_bool_result_t result = {};
+    ini_bool_result_t result = {0};
     if(self == NULL)
     {
         result.ok = false;

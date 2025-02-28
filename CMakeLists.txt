@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.20)
 
 project(auxum)
 
@@ -16,7 +16,8 @@ file(
 
 add_library(
     ${PROJECT_NAME}
-    ${${PROJECT_NAME}_SRC}
+    STATIC
+        ${${PROJECT_NAME}_SRC}
 )
 
 if(MSVC)
@@ -41,7 +42,7 @@ target_compile_definitions(
 
 set_property(
     TARGET ${PROJECT_NAME}
-    PROPERTY C_STANDARD 23
+    PROPERTY C_STANDARD 17
 )
 
 if(CMAKE_BUILD_TYPE MATCHES "Debug")
@@ -70,7 +71,7 @@ target_compile_definitions(
 
 set_property(
     TARGET ${PROJECT_NAME}_test
-    PROPERTY C_STANDARD 23
+    PROPERTY C_STANDARD 17
 )
 endif()
 

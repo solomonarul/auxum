@@ -2,6 +2,8 @@
 #ifndef AUXUM_BITSET_H
 #define AUXUM_BITSET_H
 
+#include <stdbool.h>
+
 struct bitset {
     int size;
     char* data;

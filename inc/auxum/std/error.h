@@ -2,6 +2,8 @@
 #ifndef AUXUM_ERROR_H
 #define AUXUM_ERROR_H
 
+#include <stdbool.h>
+
 #define DEFINE_RESULT(ResultType, ErrorType, Name) typedef struct { bool ok : 1; union { ResultType result; ErrorType error; }; } Name
 #define DEFINE_MAYBE(ErrorType, Name) typedef struct { bool ok : 1; ErrorType error; } Name
 #define IS_OK(Result) ((Result).ok)
