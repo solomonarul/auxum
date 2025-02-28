@@ -1,6 +1,5 @@
 #include "file/ini.h"
 #include <auxum/std.h>
-#include <SDL3/SDL.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -36,7 +35,7 @@ static void ini_array_parse(ini_data_t* self, char* line)
         else
         {
             other.type = INI_DATA_VALUE;
-            other.data.string = SDL_strdup(line);
+            other.data.string = strdup(line);
         }
         dynarray_push_back(&self->data.array, &other);
         line = end + 1;
@@ -82,7 +81,7 @@ ini_file_result_t ini_file_parse(FILE* file)
         {
             ini_section_t new_section;
             line[length - 1] = '\0';
-            new_section.key = SDL_strdup(line + 1);
+            new_section.key = strdup(line + 1);
             dynarray_init(&new_section.values, sizeof(ini_value_t), 0);
             current_section = dynarray_push_back(&result.sections, &new_section);
         }
@@ -98,13 +97,13 @@ ini_file_result_t ini_file_parse(FILE* file)
                 if(line[length - 1] == ']' && line[length - 2] == '[')  // This is an array.
                 {
                     line[length - 2] = '\0';
-                    new_value.key = SDL_strdup(line);
+                    new_value.key = strdup(line);
                     ini_array_parse(&new_value.value, second_part);
                 }
                 else {                                                  // This is a normal key=value.
-                    new_value.key = SDL_strdup(line);
+                    new_value.key = strdup(line);
                     new_value.value.type = INI_DATA_VALUE;
-                    new_value.value.data.string = SDL_strdup(second_part);
+                    new_value.value.data.string = strdup(second_part);
                 }
                 dynarray_push_back(&current_section->values, &new_value);
             }
