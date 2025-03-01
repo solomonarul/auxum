@@ -2,13 +2,18 @@
 
 #include <string.h>
 
+void string_nconcat(char* const dest, char* const first, int first_size, char* const second, int second_size)
+{
+    memccpy((void*)dest, first, '\0', first_size);
+    memccpy((void*)(dest + first_size), second, '\0', second_size);
+    dest[first_size + second_size] = '\0';   
+}
+
 void string_concat(char* const dest, char* const first, char* const second)
 {
     const int first_len = strlen(first);
     const int second_len = strlen(second);
-    memccpy((void*)dest, first, '\0', first_len);
-    memccpy((void*)(dest + first_len), second, '\0', second_len);
-    dest[first_len + second_len] = '\0';
+    string_nconcat(dest, first, first_len, second, second_len);
 }
 
 char* string_strip(char* const src)

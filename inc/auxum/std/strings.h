@@ -3,6 +3,12 @@
 #define AUXUM_STRINGS_H
 
 /*
+ *  Concatenates two strings and stores the result into dest, with specified sizes.
+ *  NOTE: make sure that the result actually fits into dest as this is unsafe.
+ */
+void string_nconcat(char* const dest, char* const first, int first_size, char* const second, int second_size);
+
+/*
  *  Concatenates two strings and stores the result into dest.
  *  NOTE: make sure that the result actually fits into dest as this is unsafe.
  */
