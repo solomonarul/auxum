@@ -71,5 +71,6 @@ void dynarray_free(dynarray_t self)
     if(self.free_callback != NULL)
         for(uint32_t index = 0; index < self.size; index++)
             self.free_callback((char*)self.data + (index * self.element_size));
-    free(self.data);
+    if(self.data != NULL)
+        free(self.data);
 }

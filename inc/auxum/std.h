@@ -13,8 +13,9 @@
 #define KB 1024
 #define MB 1024 * KB
 
+#define UNUSED(X) ((void)(X))
+
 #include "std/error.h"
-#include "std/unused.h"
 #include "std/strings.h"
 
 #endif
