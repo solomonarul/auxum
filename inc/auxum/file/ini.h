@@ -8,23 +8,21 @@
 
 #define MAX_LINE_WIDTH 255
 
-struct ini_file {
+typedef struct ini_file {
     dynarray_t sections;
-};
-typedef struct ini_file ini_file_t;
+} ini_file_t;
 DEFINE_RESULT(ini_file_t, char*, ini_file_result_t);
 DEFINE_RESULT(int, char*, ini_int_result_t);
 DEFINE_RESULT(bool, char*, ini_bool_result_t);
 DEFINE_RESULT(char*, char*, ini_string_result_t);
 
-struct ini_section{
+typedef struct ini_section{
     char* key;
     dynarray_t values;
-};
-typedef struct ini_section ini_section_t;
+} ini_section_t;
 DEFINE_RESULT(ini_section_t*, char*, ini_section_ptr_result_t);
 
-struct ini_data{
+typedef struct ini_data{
     enum {
         INI_DATA_NONE = (uint8_t)0,
         INI_DATA_ARRAY, INI_DATA_VALUE, INI_DATA_COUNT
@@ -34,16 +32,13 @@ struct ini_data{
         char* string;       // For values.
         dynarray_t array;   // For arrays, should allow nesting.
     } data;
-};
-typedef struct ini_data ini_data_t;
+} ini_data_t;
 DEFINE_RESULT(ini_data_t*, char*, ini_data_ptr_result_t);
 
-struct ini_value {
+typedef struct ini_value {
     char* key;
     ini_data_t value;
-};
-
-typedef struct ini_value ini_value_t;
+} ini_value_t;
 
 ini_file_result_t ini_file_read(char* const path);
 ini_file_result_t ini_file_parse(FILE* file);

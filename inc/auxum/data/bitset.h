@@ -4,11 +4,10 @@
 
 #include <stdbool.h>
 
-struct bitset {
+typedef struct bitset {
     int size;
     char* data;
-};
-typedef struct bitset bitset_t;
+} bitset_t;
 
 /*
  *  Initializes a bitset with the specified size.
