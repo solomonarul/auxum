@@ -17,6 +17,7 @@ void* dynarray_push_back(dynarray_t* self, void* element);
 void dynarray_pop_back(dynarray_t* self);
 void* dynarray_get(dynarray_t self, uint32_t index);
 void dynarray_remove(dynarray_t* self, uint32_t index);
+dynarray_t dynarray_duplicate(dynarray_t* self);
 void dynarray_free(dynarray_t self);
 
 #endif

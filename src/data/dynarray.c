@@ -66,6 +66,14 @@ void* dynarray_get(dynarray_t self, uint32_t index)
     return (char*)self.data + (index * self.element_size);
 }
 
+dynarray_t dynarray_duplicate(dynarray_t* self)
+{
+    dynarray_t result;
+    dynarray_init(&result, self->element_size, self->size);
+    memcpy(result.data, self->data, self->element_size * self->size);
+    return result;
+}
+
 void dynarray_free(dynarray_t self)
 {
     if(self.free_callback != NULL)

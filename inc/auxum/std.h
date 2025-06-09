@@ -17,5 +17,6 @@
 
 #include "std/error.h"
 #include "std/strings.h"
+#include "platform/app.h"
 
 #endif
