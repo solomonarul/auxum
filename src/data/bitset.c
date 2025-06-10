@@ -38,6 +38,7 @@ void bitset_resize(bitset_t* const self, int new_size)
 {
     assert(new_size != 0);
     self->data = realloc(self->data, (new_size / sizeof(char)) + 1);
+    self->size = new_size;
 }
 
 void bitset_clear(bitset_t* self)

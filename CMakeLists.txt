@@ -11,7 +11,7 @@ file(
 file(
     GLOB_RECURSE
     ${PROJECT_NAME}_TEST_SRC
-        "test/*.c"
+        "test/main.c"
 )
 
 add_library(
