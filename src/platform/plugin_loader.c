@@ -1,5 +1,7 @@
 #include "platform/plugin_loader.h"
 
+#ifndef BUILD_TYPE_VITA
+
 plugin_result_t plugin_load(char* const path)
 {
     plugin_result_t result = {0};
@@ -35,3 +37,5 @@ plugin_function_result_t plugin_get_symbol(plugin_t self, char* const name)
     result.ok = true;
     return result;
 }
+
+#endif
