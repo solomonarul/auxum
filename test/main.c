@@ -2,8 +2,6 @@
 #include "data/dynarray.c"
 #include "data/bitset.c"
 
-#define UNUSED(X) ((void)(X))
-
 int main(int argc, char* argv[])
 {
     UNUSED(argc);
